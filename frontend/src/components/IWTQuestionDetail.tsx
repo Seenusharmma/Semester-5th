@@ -96,16 +96,16 @@ export function IWTQuestionDetail({ question }: IWTQuestionDetailProps) {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-8 pb-5 border-b border-gray-100 dark:border-gray-700">
-        <div className={`px-5 py-2 rounded-2xl ${getCategoryColor(question.category)} shadow-md`}>
+    <div className="p-3 sm:p-4 md:p-6 max-w-7xl mx-auto">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-6 sm:mb-8 pb-4 sm:pb-5 border-b border-gray-100 dark:border-gray-700">
+        <div className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl ${getCategoryColor(question.category)} shadow-md inline-block self-start`}>
           <span className="text-white text-xs font-bold tracking-wide uppercase">
             {getCategoryLabel(question.category)}
           </span>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="px-4 py-2 rounded-2xl bg-gray-100 dark:bg-gray-800">
-            <span className="text-base font-bold text-gray-600 dark:text-gray-300 opacity-80">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+          <div className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-gray-100 dark:bg-gray-800 text-center sm:text-left">
+            <span className="text-sm sm:text-base font-bold text-gray-600 dark:text-gray-300 opacity-80">
               {question.marks} marks
             </span>
           </div>
@@ -113,7 +113,7 @@ export function IWTQuestionDetail({ question }: IWTQuestionDetailProps) {
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
-              className="px-3 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
+              className="flex-1 sm:flex-none px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
               disabled={isSpeaking || isTranslating}
             >
               {languages.map((lang) => (
@@ -125,7 +125,7 @@ export function IWTQuestionDetail({ question }: IWTQuestionDetailProps) {
             <button
               onClick={speakText}
               disabled={isTranslating}
-              className={`px-4 py-2 rounded-2xl shadow-md transition-all duration-200 flex items-center gap-2 ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl shadow-md transition-all duration-200 flex items-center gap-1.5 sm:gap-2 ${
                 isSpeaking
                   ? 'bg-red-500 hover:bg-red-600'
                   : isTranslating
@@ -142,7 +142,7 @@ export function IWTQuestionDetail({ question }: IWTQuestionDetailProps) {
             >
               {isTranslating ? (
                 <svg
-                  className="animate-spin h-5 w-5 text-white"
+                  className="animate-spin h-4 w-4 sm:h-5 sm:w-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -164,7 +164,7 @@ export function IWTQuestionDetail({ question }: IWTQuestionDetailProps) {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-white"
+                  className="h-4 w-4 sm:h-5 sm:w-5 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -187,36 +187,36 @@ export function IWTQuestionDetail({ question }: IWTQuestionDetailProps) {
                 </svg>
               )}
               {isTranslating && (
-                <span className="text-white text-xs font-medium">Translating...</span>
+                <span className="text-white text-xs font-medium hidden sm:inline">Translating...</span>
               )}
             </button>
           </div>
         </div>
       </div>
 
-      <div className="mb-8">
-        <div className="flex items-center mb-4">
-          <div className="w-1 h-5 bg-blue-500 rounded mr-3" />
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 opacity-90 tracking-tight">
+      <div className="mb-6 sm:mb-8">
+        <div className="flex items-center mb-3 sm:mb-4">
+          <div className="w-1 h-4 sm:h-5 bg-blue-500 rounded mr-2 sm:mr-3" />
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 opacity-90 tracking-tight">
             Question
           </h2>
         </div>
-        <div className="bg-gray-50 dark:bg-gray-800 p-5 rounded-xl border-l-4 border-blue-500">
-          <p className="text-lg font-bold leading-7 tracking-tight whitespace-pre-line text-gray-900 dark:text-gray-100">
+        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border-l-4 border-blue-500">
+          <p className="text-base sm:text-lg font-bold leading-6 sm:leading-7 tracking-tight whitespace-pre-line text-gray-900 dark:text-gray-100 break-words">
             {question.question}
           </p>
         </div>
       </div>
 
-      <div className="mb-8">
-        <div className="flex items-center mb-4">
-          <div className="w-1 h-5 bg-green-500 rounded mr-3" />
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 opacity-90 tracking-tight">
+      <div className="mb-6 sm:mb-8">
+        <div className="flex items-center mb-3 sm:mb-4">
+          <div className="w-1 h-4 sm:h-5 bg-green-500 rounded mr-2 sm:mr-3" />
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 opacity-90 tracking-tight">
             Answer
           </h2>
         </div>
-        <div className="bg-gray-50 dark:bg-gray-800 p-5 rounded-xl border-l-4 border-green-500">
-          <p className="text-base leading-7 text-gray-800 dark:text-gray-200 opacity-85 whitespace-pre-line">
+        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border-l-4 border-green-500">
+          <p className="text-sm sm:text-base leading-6 sm:leading-7 text-gray-800 dark:text-gray-200 opacity-85 whitespace-pre-line break-words">
             {question.answer}
           </p>
         </div>

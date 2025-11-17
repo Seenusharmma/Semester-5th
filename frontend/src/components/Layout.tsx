@@ -11,18 +11,18 @@ export default function Layout({ children }: LayoutProps) {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 pb-20 transition-colors duration-200">
-      <div className="fixed top-0 right-0 p-4 z-50">
+    <div className="min-h-screen bg-white dark:bg-gray-900 pb-20 sm:pb-20 transition-colors duration-200">
+      <div className="fixed top-0 right-0 p-2 sm:p-3 md:p-4 z-50">
         <button
           onClick={toggleTheme}
-          className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-110"
+          className="p-2 sm:p-2.5 md:p-3 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-110 active:scale-95"
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           {isDark ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-yellow-500"
+              className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -37,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-gray-700 dark:text-gray-300"
+              className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 dark:text-gray-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -53,28 +53,28 @@ export default function Layout({ children }: LayoutProps) {
         </button>
       </div>
       {children}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg">
-        <div className="flex justify-around items-center h-16">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg safe-area-inset-bottom">
+        <div className="flex justify-around items-center h-14 sm:h-16">
           <Link
             to="/"
-            className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
+            className={`flex flex-col items-center justify-center flex-1 h-full transition-colors touch-manipulation ${
               location.pathname === '/' 
                 ? 'text-blue-500 dark:text-blue-400' 
                 : 'text-gray-500 dark:text-gray-400'
             }`}
           >
-            <span className="text-2xl mb-1">📚</span>
+            <span className="text-xl sm:text-2xl mb-0.5 sm:mb-1">📚</span>
             <span className="text-xs font-semibold">Home</span>
           </Link>
           <Link
             to="/explore"
-            className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
+            className={`flex flex-col items-center justify-center flex-1 h-full transition-colors touch-manipulation ${
               location.pathname === '/explore' 
                 ? 'text-blue-500 dark:text-blue-400' 
                 : 'text-gray-500 dark:text-gray-400'
             }`}
           >
-            <span className="text-2xl mb-1">🔍</span>
+            <span className="text-xl sm:text-2xl mb-0.5 sm:mb-1">🔍</span>
             <span className="text-xs font-semibold">Explore</span>
           </Link>
         </div>

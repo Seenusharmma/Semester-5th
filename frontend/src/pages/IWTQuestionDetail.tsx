@@ -11,7 +11,7 @@ export default function IWTQuestionDetail() {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="text-center">
-          <h2 className="text-xl font-semibold text-gray-600 mb-4">
+          <h2 className="text-xl font-semibold text-gray-600 dark:text-gray-300 mb-4">
             Question not found
           </h2>
           <button
@@ -27,14 +27,14 @@ export default function IWTQuestionDetail() {
 
   return (
     <div>
-      <div className="flex items-center justify-between px-4 pt-16 pb-3 border-b border-gray-200">
+      <div className="flex items-center justify-between px-4 pt-16 pb-3 border-b border-gray-200 dark:border-gray-700">
         <button
           onClick={() => navigate(-1)}
-          className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-900 dark:text-white"
         >
           <span className="text-xl">←</span>
         </button>
-        <h2 className="text-lg font-semibold">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
           Question Details
         </h2>
         <div className="w-10" />
